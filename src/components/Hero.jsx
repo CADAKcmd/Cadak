@@ -1,0 +1,81 @@
+import React, { useState, useEffect } from 'react';
+import { FaInstagram, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
+
+const Hero = () => {
+  const words = ["Graphics Designer", "UI/UX Designer", "Front End Developer", "Brand Designer"];
+  const [text, setText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const speed = isDeleting ? 25 : 25;
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const currentWord = words[wordIndex];
+      if (isDeleting) {
+        setText((prev) => prev.slice(0, -1));
+      } else {
+        setText((prev) => currentWord.slice(0, prev.length + 1));
+      }
+
+      if (!isDeleting && text === currentWord) {
+        setTimeout(() => setIsDeleting(true), 1000);
+      } else if (isDeleting && text === "") {
+        setIsDeleting(false);
+        setWordIndex((prev) => (prev + 1) % words.length);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, speed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, wordIndex]);
+
+  return (
+    <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white w-full min-h-screen pt-20 transition-colors duration-500">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-10 px-6 md:px-12">
+        
+        {/* Left Side */}
+        <div className="flex flex-col justify-center items-start w-full md:w-1/2 py-10">
+          <h3 className="text-[#5237F9] text-sm font-bold uppercase mb-4">Welcome to my world</h3>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">I'm Abubakar Gbadebo</h1>
+          <h2 className="text-4xl md:text-5xl font-bold flex items-center mb-6">
+            A&nbsp;
+            <span className="text-[#5237F9]">{text}</span>
+            <span className="border-r-2 border-current animate-pulse ml-1"></span>
+          </h2>
+          <p className="text-gray-700 dark:text-gray-400 text-base leading-relaxed mb-8 max-w-lg">
+            “I owe my success to having listened respectfully to the very best advice, 
+            and then going away and doing the exact opposite.”
+          </p>
+          <div>
+            <h1 className="font-bold mb-2">Find Me On</h1>
+            <div className="flex gap-4">
+              <a href="#"><FaInstagram size={24} className="hover:text-[#5237F9] transition-colors" /></a>
+              <a href="#"><FaLinkedin size={24} className="hover:text-[#5237F9] transition-colors" /></a>
+              <a href="#"><FaTwitter size={24} className="hover:text-[#5237F9] transition-colors" /></a>
+              <a href="#"><FaFacebook size={24} className="hover:text-[#5237F9] transition-colors" /></a>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side */}
+        <div className="w-full md:w-1/2 flex justify-center items-center">
+          <div className="relative w-[90%] sm:w-[75%] max-w-md h-[400px] sm:h-[500px] border-[20px]  border-indigo-900 rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="/anime-couple-being-love - Copy.jpg"
+              alt="Abubakar Gbadebo"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute right-[-70px] md:right-[-100px] top-1/2 transform -translate-y-1/2 rotate-90">
+              <h1 className="text-xl sm:text-3xl font-bold tracking-widest dark:text-white text-[#5237F9] whitespace-nowrap">
+                ABUBAKAR GBADEBO
+              </h1>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
