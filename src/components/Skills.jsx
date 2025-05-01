@@ -39,7 +39,7 @@ const SkillBar = ({ name, percentage }) => {
   }, [percentage]);
 
   return (
-    <div ref={ref} className="mb-6">
+    <div id='skills' ref={ref} className="mb-6">
       <div className="flex justify-between mb-1">
         <span className="text-sm text-gray-900 dark:text-white">{name}</span>
         <span className="text-sm text-gray-900 dark:text-white">{count}%</span>
@@ -74,7 +74,7 @@ const Skills = () => {
       custom={0}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Design Skills */}
+       
         <motion.div variants={sectionVariants} custom={1}>
           <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">DESIGN SKILL</h2>
           <SkillBar name="Corel Draw" percentage={90} />
@@ -84,7 +84,6 @@ const Skills = () => {
           <SkillBar name="Photo Room" percentage={100} />
         </motion.div>
 
-        {/* Development Skills */}
         <motion.div variants={sectionVariants} custom={2}>
           <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">DEVELOPMENT SKILL</h2>
           <SkillBar name="HTML" percentage={100} />

@@ -28,7 +28,7 @@ const cardVariants = {
 
 const Projects = () => {
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 py-14 px-4 md:px-16">
+    <div id='project' className="bg-gray-100 dark:bg-gray-900 py-14 px-4 md:px-16">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -30,10 +30,9 @@ const Hero = () => {
   }, [text, isDeleting, wordIndex]);
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white w-full min-h-screen pt-20 transition-colors duration-500">
+    <div id='home' className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white w-full min-h-screen pt-20 transition-colors duration-500">
       <div className="flex flex-col md:flex-row items-center justify-between gap-10 px-6 md:px-12">
         
-        {/* Left Side */}
         <div className="flex flex-col justify-center items-start w-full md:w-1/2 py-10">
           <h3 className="text-[#5237F9] text-sm font-bold uppercase mb-4">Welcome to my world</h3>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">I'm Abubakar Gbadebo</h1>
@@ -57,19 +56,14 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Side */}
+        
         <div className="w-full md:w-1/2 flex justify-center items-center">
           <div className="relative w-[90%] sm:w-[75%] max-w-md h-[400px] sm:h-[500px] border-[20px]  border-indigo-900 rounded-2xl overflow-hidden shadow-lg">
             <img
-              src="/anime-couple-being-love - Copy.jpg"
+              src="/my.jpg"
               alt="Abubakar Gbadebo"
               className="w-full h-full object-cover"
             />
-            <div className="absolute right-[-70px] md:right-[-100px] top-1/2 transform -translate-y-1/2 rotate-90">
-              <h1 className="text-xl sm:text-3xl font-bold tracking-widest dark:text-white text-[#5237F9] whitespace-nowrap">
-                ABUBAKAR GBADEBO
-              </h1>
-            </div>
           </div>
         </div>
 

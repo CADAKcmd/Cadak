@@ -12,6 +12,7 @@ import {
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-scroll';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -23,10 +24,18 @@ const Footer = () => {
     setEmail('');
   };
 
+  const socialLinks = [
+    { icon: faInstagram, url: 'https://instagram.com/yourprofile' },
+    { icon: faLinkedin, url: 'https://linkedin.com/in/yourprofile' },
+    { icon: faTwitter, url: 'https://twitter.com/yourprofile' },
+    { icon: faFacebook, url: 'https://facebook.com/yourprofile' },
+  ];
+
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 text-black dark:text-white px-6 py-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-        {/* Left Section */}
+        
+        
         <div className="space-y-6">
           <div className="flex items-center gap-3">
             <span className="text-3xl font-extrabold dark:text-white text-black">Cadak</span>
@@ -52,18 +61,32 @@ const Footer = () => {
           </form>
         </div>
 
-        {/* Middle Section */}
+        
         <div className="space-y-4">
           <h3 className="text-xl font-bold">Quick Link</h3>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-            <li><a href="#about" className="hover:text-[#5237F9] transition">About Me</a></li>
-            <li><a href="#services" className="hover:text-[#5237F9] transition">Service</a></li>
-            <li><a href="#contact" className="hover:text-[#5237F9] transition">Contact Me</a></li>
-            <li><a href="#resume" className="hover:text-[#5237F9] transition">Resume</a></li>
+            {[
+              { to: 'home', label: 'Home' },
+              { to: 'about', label: 'About Me' },
+              { to: 'services', label: 'Service' },
+              { to: 'contact', label: 'Contact Me' },
+              { to: 'resume', label: 'Resume' }
+            ].map(({ to, label }, index) => (
+              <li key={index}>
+                <Link
+                  to={to}
+                  smooth={true}
+                  duration={500}
+                  className="cursor-pointer hover:text-[#5237F9] transition"
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Right Section */}
+       
         <div className="space-y-4">
           <h3 className="text-xl font-bold">Contact</h3>
           <ul className="space-y-4 text-gray-700 dark:text-gray-300">
@@ -77,24 +100,27 @@ const Footer = () => {
               <span className="bg-black/10 dark:bg-white/10 p-2 rounded-full">
                 <FontAwesomeIcon icon={faMapMarkerAlt} className="text-[#5237F9]" />
               </span>
-              2, Asubiaro drive,Shomolu, Lagos, Nigeria
+              2, Asubiaro drive, Shomolu, Lagos, Nigeria
             </li>
             <li className="flex items-center gap-3">
               <span className="bg-black/10 dark:bg-white/10 p-2 rounded-full">
                 <FontAwesomeIcon icon={faPhone} className="text-[#5237F9]" />
               </span>
-              +234 707 7262 5562
+              +234 707 262 5562
             </li>
           </ul>
 
           <div className="flex gap-4 mt-6">
-            {[faInstagram, faLinkedin, faTwitter, faFacebook].map((icon, i) => (
-              <span
+            {socialLinks.map(({ icon, url }, i) => (
+              <a
                 key={i}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-black/10 dark:bg-white/10 p-2 rounded-full hover:bg-[#5237F9] hover:text-white transition"
               >
                 <FontAwesomeIcon icon={icon} />
-              </span>
+              </a>
             ))}
           </div>
         </div>

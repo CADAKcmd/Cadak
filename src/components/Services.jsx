@@ -1,4 +1,4 @@
-import { FaCode, FaLaptopCode, FaBriefcase, FaHandshake } from 'react-icons/fa';
+import { FaCode, FaLaptopCode, FaPaintBrush, FaTshirt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const services = [
@@ -13,14 +13,14 @@ const services = [
     desc: "Business consulting consult us to provide expert advice. Each one showcases my approach and dedication to detail, creativity.",
   },
   {
-    title: "Business Solutions",
-    icon: <FaBriefcase className="text-[#5237F9] text-3xl" />,
-    desc: "Each one showcases my approach and dedication to detail, creativity.",
+    title: "Corel Design Expertise",
+    icon: <FaPaintBrush className="text-[#5237F9] text-3xl" />,
+    desc: "I specialize in high-quality design work using CorelDRAW, crafting visually appealing logos, flyers, and marketing material with precision and creativity.",
   },
   {
-    title: "Profit Partners",
-    icon: <FaHandshake className="text-[#5237F9] text-3xl" />,
-    desc: "Business consulting consult us to provide expert advice. Each one showcases my approach and dedication to detail, creativity.",
+    title: "Branding & Clothing Design",
+    icon: <FaTshirt className="text-[#5237F9] text-3xl" />,
+    desc: "From brand identity to clothing and merchandise design, I help shape cohesive visuals that connect with your target audience and boost brand value.",
   },
 ];
 
@@ -54,7 +54,7 @@ export default function Services() {
         What I Provide For You
       </motion.h2>
 
-      <div className="grid gap-8 md:grid-cols-2">
+      <div id='services' className="grid gap-8 md:grid-cols-2">
         {services.map((service, index) => (
           <motion.div
             key={index}

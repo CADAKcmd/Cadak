@@ -14,19 +14,13 @@ const ContactForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    // Add email submission logic here
-  };
-
   const inputClass =
     'w-full p-4 bg-transparent border border-gray-600 rounded-md focus:outline-none focus:border-[#5237F9] text-lg text-black dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400';
 
   return (
-    <section className="min-h-screen px-4 py-20 dark:bg-gray-900 bg-gray-100 text-black dark:text-white transition-colors duration-500">
+    <section id='contact' className="min-h-screen px-4 py-20 dark:bg-gray-900 bg-gray-100 text-black dark:text-white transition-colors duration-500">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-        {/* Left Side */}
+        
         <div className="space-y-6">
           <p className="text-[#5237F9] font-semibold uppercase tracking-wider">Get in Touch</p>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -37,8 +31,11 @@ const ContactForm = () => {
           </p>
         </div>
 
-        {/* Right Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form
+          action='https://formsubmit.co/cadakcmd@gmail.com' 
+          method='POST'
+          className="space-y-6"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <input
               type="text"

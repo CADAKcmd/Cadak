@@ -28,13 +28,14 @@ const About = ({ darkMode }) => {
     }
   }, [inView]);
 
-  // Animation variants
+  
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   return (
+    
     <motion.div
       initial="hidden"
       animate="visible"
@@ -43,8 +44,7 @@ const About = ({ darkMode }) => {
       }}
       className={`min-h-screen flex flex-col lg:flex-row items-center justify-center gap-6 p-6 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}
     >
-      {/* Left Section */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-center items-center gap-6">
+      <div  id='about' className="w-full lg:w-1/2 flex flex-col justify-center items-center gap-6">
         <motion.div
           ref={ref}
           variants={fadeUp}
@@ -69,7 +69,7 @@ const About = ({ darkMode }) => {
         </motion.div>
       </div>
 
-      {/* Right Section */}
+      
       <div className="w-full lg:w-1/2 flex flex-col gap-6">
         <motion.div
           variants={fadeUp}
@@ -133,6 +133,9 @@ const About = ({ darkMode }) => {
           ))}
         </div>
       </div>
+      
+      
+      
     </motion.div>
   );
 };
