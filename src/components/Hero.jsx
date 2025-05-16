@@ -42,8 +42,7 @@ const Hero = () => {
             <span className="border-r-2 border-current animate-pulse ml-1"></span>
           </h2>
           <p className="text-gray-700 dark:text-gray-400 text-base leading-relaxed mb-8 max-w-lg">
-            “I owe my success to having listened respectfully to the very best advice, 
-            and then going away and doing the exact opposite.”
+            “I owe my success to learning from the best advice—and then finding my own unique path forward.”
           </p>
           <div>
             <h1 className="font-bold mb-2">Find Me On</h1>
