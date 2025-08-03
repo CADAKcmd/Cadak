@@ -20,7 +20,7 @@ const projects = [
     title: 'Success Laundry',
     subtitle: 'Laundry Service',
     image: '/sss.png',
-    link: 'https://laundry-project-delta.vercel.app/',
+    link: 'https://success-laundry-online.vercel.app/',
   },
 ];
 
