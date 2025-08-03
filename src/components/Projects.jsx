@@ -3,6 +3,7 @@ import { ArrowDownLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const projects = [
+  
   {
     title: 'Bakerz Bites',
     subtitle: 'Bakery Website',
@@ -14,6 +15,12 @@ const projects = [
     subtitle: 'Furniture E-commerce',
     image: '/Wood.png',
     link: 'https://hamzat-furniture.vercel.app/',
+  },
+  {
+    title: 'Success Laundry',
+    subtitle: 'Laundry Service',
+    image: '/sss.png',
+    link: 'https://laundry-project-delta.vercel.app/',
   },
 ];
 
