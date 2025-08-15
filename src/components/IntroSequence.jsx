@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import Logo from "../assets/logo.png"; // Adjust the path as necessary
+import Logo from "../assets/cadak.png";
 
 const IntroSequence = ({ onFinish }) => {
   const [step, setStep] = useState(0);
