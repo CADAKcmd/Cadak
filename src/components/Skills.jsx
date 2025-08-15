@@ -36,7 +36,7 @@ const SkillBar = ({ name, percentage }) => {
 
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [percentage]);
+  },  );
 
   return (
     <div id='skills' ref={ref} className="mb-6">
