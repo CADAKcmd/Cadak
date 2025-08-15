@@ -10,23 +10,25 @@ const SkillBar = ({ name, percentage }) => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          let start = 0;
-          const duration = 1500;
-          const increment = percentage / (duration / 16);
-          const counterIncrement = percentage / (duration / 16);
+          let startWidth = 0;
+          let startCount = 0;
+          const duration = 1500; // ms
+          const increment = percentage / (duration / 16); // ~60fps
 
           const animate = () => {
-            start += increment;
-            const counter = Math.min(count + counterIncrement, percentage);
-            if (start < percentage) {
-              setWidth(Math.min(start, percentage));
-              setCount(Math.floor(counter));
+            startWidth += increment;
+            startCount += increment;
+
+            if (startWidth < percentage) {
+              setWidth(Math.min(startWidth, percentage));
+              setCount(Math.floor(Math.min(startCount, percentage)));
               requestAnimationFrame(animate);
             } else {
               setWidth(percentage);
               setCount(percentage);
             }
           };
+
           animate();
           observer.disconnect();
         }
@@ -36,7 +38,7 @@ const SkillBar = ({ name, percentage }) => {
 
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  },  );
+  }, []); // run once
 
   return (
     <div id='skills' ref={ref} className="mb-6">
@@ -74,7 +76,6 @@ const Skills = () => {
       custom={0}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-       
         <motion.div variants={sectionVariants} custom={1}>
           <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">DESIGN SKILL</h2>
           <SkillBar name="Corel Draw" percentage={90} />
