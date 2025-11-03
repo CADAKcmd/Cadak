@@ -22,6 +22,18 @@ const projects = [
     image: '/sss.png',
     link: 'https://success-laundry-online.vercel.app/',
   },
+
+   { title: 'Grocery store',
+    subtitle: 'Grocery E-commerce',
+    image: '/mans.png',
+    link: 'https://sampfatis-store-vd4a.vercel.app/',
+  },
+
+   { title: 'Ecommerce site',
+    subtitle: 'E-commerce Website',
+    image: '/NNNN.png',
+    link: 'https://asucon-project.vercel.app/splash',
+  },
 ];
 
 const cardVariants = {
