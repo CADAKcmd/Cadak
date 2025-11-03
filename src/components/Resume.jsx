@@ -30,19 +30,39 @@ const Resume = ({ darkMode }) => {
     }
   ];
 
+  // Path to your PDF file inside /public folder
+  const resumeUrl = '/resume.pdf';
+
   return (
-    <div id='resume' className={`w-full min-h-[90vh] px-4 py-12 sm:px-10 lg:px-24 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
-      <h2 className="text-4xl sm:text-5xl font-bold mb-6">My Experts Areas Where I Gained Skill</h2>
-      <p className={`mb-12 max-w-3xl text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-        I specialize in modern web and graphic design tools to create efficient, professional, and visually compelling digital experiences tailored to real-world needs.
+    <div
+      id="resume"
+      className={`w-full min-h-[90vh] px-4 py-12 sm:px-10 lg:px-24 ${
+        darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'
+      }`}
+    >
+      <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+        My Expert Areas Where I Gained Skill
+      </h2>
+      <p
+        className={`mb-12 max-w-3xl text-lg ${
+          darkMode ? 'text-gray-300' : 'text-gray-700'
+        }`}
+      >
+        I specialize in modern web and graphic design tools to create efficient,
+        professional, and visually compelling digital experiences tailored to
+        real-world needs.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      {/* Skills Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-16">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className={`min-h-[40vh] flex flex-col justify-start border rounded-2xl p-6 transition duration-300 hover:shadow-xl
-              ${darkMode ? 'bg-gray-800 bg-opacity-80 border-[#5237F9]' : 'bg-white border-[#5237F9]'}`}
+            className={`min-h-[40vh] flex flex-col justify-start border rounded-2xl p-6 transition duration-300 hover:shadow-xl ${
+              darkMode
+                ? 'bg-gray-800 bg-opacity-80 border-[#5237F9]'
+                : 'bg-white border-[#5237F9]'
+            }`}
           >
             <div className="flex items-center gap-4 mb-5">
               <div className="w-16 h-16 rounded-full flex items-center justify-center border border-[#5237F9]">
@@ -50,11 +70,38 @@ const Resume = ({ darkMode }) => {
               </div>
               <h4 className="text-2xl font-semibold">{skill.name}</h4>
             </div>
-            <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} text-base leading-relaxed`}>
+            <p
+              className={`${
+                darkMode ? 'text-gray-300' : 'text-gray-700'
+              } text-base leading-relaxed`}
+            >
               {skill.description}
             </p>
           </div>
         ))}
+      </div>
+
+      {/* Resume Viewer Section */}
+      <div className="flex flex-col items-center">
+        <h3 className="text-3xl font-bold mb-6 text-[#5237F9]">
+          View My Resume
+        </h3>
+
+        {/* Embedded PDF */}
+        <iframe
+          src={resumeUrl}
+          title="My Resume"
+          className="w-full max-w-4xl h-[80vh] border-2 border-[#5237F9] rounded-xl shadow-lg mb-6"
+        ></iframe>
+
+        {/* Download Button */}
+        <a
+          href={resumeUrl}
+          download
+          className="px-6 py-3 bg-[#5237F9] text-white rounded-lg shadow-md hover:bg-[#3e2ad9] transition"
+        >
+          Download Resume
+        </a>
       </div>
     </div>
   );
