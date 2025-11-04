@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaInstagram, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+
 
 const Hero = () => {
   const words = ["Graphics Designer", "UI/UX Designer", "Front End Developer", "Brand Designer"];
@@ -45,21 +46,27 @@ const Hero = () => {
             “I owe my success to learning from the best advice—and then finding my own unique path forward.”
           </p>
           <div>
-            <h1 className="font-bold mb-2">Find Me On</h1>
-            <div className="flex gap-4">
-              <a href="#"><FaInstagram size={24} className="hover:text-[#5237F9] transition-colors" /></a>
-              <a href="#"><FaLinkedin size={24} className="hover:text-[#5237F9] transition-colors" /></a>
-              <a href="#"><FaTwitter size={24} className="hover:text-[#5237F9] transition-colors" /></a>
-              <a href="#"><FaFacebook size={24} className="hover:text-[#5237F9] transition-colors" /></a>
-            </div>
-          </div>
+  <h1 className="font-bold mb-2">Find Me On</h1>
+  <div className="flex gap-4">
+    <a href="https://x.com/KianoGee" target="_blank" rel="noopener noreferrer">
+      <FaTwitter size={24} className="hover:text-[#5237F9] transition-colors" />
+    </a>
+    <a href="https://www.linkedin.com/in/abubakar-asubiaro-62b1b1391/" target="_blank" rel="noopener noreferrer">
+      <FaLinkedin size={24} className="hover:text-[#5237F9] transition-colors" />
+    </a>
+    <a href="https://github.com/CADAKcmd" target="_blank" rel="noopener noreferrer">
+      <FaGithub size={24} className="hover:text-[#5237F9] transition-colors" />
+    </a>
+  </div>
+</div>
+
         </div>
 
         
         <div className="w-full md:w-1/2 flex justify-center items-center">
           <div className="relative w-[90%]  sm:w-[80%] max-w-md h-[500px] sm:h-[700px] border-[15px]  border-[#5237F9] rounded-2xl overflow-hidden shadow-lg">
             <img
-              src="/my.jpeg"
+              src="/my.jpg"
               alt="Abubakar Gbadebo"
               className="w-full h-full md:object-cover bg-cover bg-center"
             />

@@ -1,18 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   faEnvelope,
   faMapMarkerAlt,
   faPhone,
   faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  faFacebook,
-  faInstagram,
-  faTwitter,
-  faLinkedin,
-} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-scroll';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'; // ✅ using react-icons now
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -20,22 +15,14 @@ const Footer = () => {
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     if (!email.trim()) return;
-    console.log("Submitted email:", email);
+    console.log('Submitted email:', email);
     setEmail('');
   };
-
-  const socialLinks = [
-    { icon: faInstagram, url: 'https://instagram.com/yourprofile' },
-    { icon: faLinkedin, url: 'https://linkedin.com/in/yourprofile' },
-    { icon: faTwitter, url: 'https://twitter.com/yourprofile' },
-    { icon: faFacebook, url: 'https://facebook.com/yourprofile' },
-  ];
 
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 text-black dark:text-white px-6 py-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-        
-        
+        {/* Brand & Email Section */}
         <div className="space-y-6">
           <div className="flex items-center gap-3">
             <span className="text-3xl font-extrabold dark:text-white text-black">Cadak</span>
@@ -61,7 +48,7 @@ const Footer = () => {
           </form>
         </div>
 
-        
+        {/* Quick Links */}
         <div className="space-y-4">
           <h3 className="text-xl font-bold">Quick Link</h3>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -70,7 +57,7 @@ const Footer = () => {
               { to: 'about', label: 'About Me' },
               { to: 'services', label: 'Service' },
               { to: 'contact', label: 'Contact Me' },
-              { to: 'resume', label: 'Resume' }
+              { to: 'resume', label: 'Resume' },
             ].map(({ to, label }, index) => (
               <li key={index}>
                 <Link
@@ -86,7 +73,7 @@ const Footer = () => {
           </ul>
         </div>
 
-       
+        {/* Contact & Social Links */}
         <div className="space-y-4">
           <h3 className="text-xl font-bold">Contact</h3>
           <ul className="space-y-4 text-gray-700 dark:text-gray-300">
@@ -110,18 +97,38 @@ const Footer = () => {
             </li>
           </ul>
 
-          <div className="flex gap-4 mt-6">
-            {socialLinks.map(({ icon, url }, i) => (
-              <a
-                key={i}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-black/10 dark:bg-white/10 p-2 rounded-full hover:bg-[#5237F9] hover:text-white transition"
-              >
-                <FontAwesomeIcon icon={icon} />
-              </a>
-            ))}
+          {/* Social Icons */}
+          <div className="flex gap-5 mt-6">
+            <a
+              href="https://x.com/KianoGee"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter
+                size={26}
+                className="hover:text-[#5237F9] transition-transform duration-300 hover:scale-110"
+              />
+            </a>
+            <a
+              href="https://linkedin.com/in/abubakar-asubiaro-62b1b1391/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin
+                size={26}
+                className="hover:text-[#5237F9] transition-transform duration-300 hover:scale-110"
+              />
+            </a>
+            <a
+              href="https://github.com/CADAKcmd"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub
+                size={26}
+                className="hover:text-[#5237F9] transition-transform duration-300 hover:scale-110"
+              />
+            </a>
           </div>
         </div>
       </div>
